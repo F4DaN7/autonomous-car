@@ -1,0 +1,29 @@
+{
+    "Area": {
+        "checkpoints": [
+            {
+                "steps": 217551,
+                "file_path": "results\\test44\\Area\\Area-217551.onnx",
+                "reward": 16.322787056386005,
+                "creation_time": 1701041935.1035557,
+                "auxillary_file_paths": [
+                    "results\\test44\\Area\\Area-217551.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 217551,
+            "file_path": "results\\test44\\Area.onnx",
+            "reward": 16.322787056386005,
+            "creation_time": 1701041935.1035557,
+            "auxillary_file_paths": [
+                "results\\test44\\Area\\Area-217551.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "2.1.1+cu121"
+    }
+}

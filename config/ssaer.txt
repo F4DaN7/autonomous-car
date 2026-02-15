@@ -1,0 +1,35 @@
+public override void CollectObservations(VectorSensor sensor)
+    {
+
+        sensor.AddObservation(this.transform.localPosition);
+        sensor.AddObservation(this.transform.localRotation);
+
+        float steeringAngle = transform.rotation.eulerAngles.y;
+        sensor.AddObservation(steeringAngle);
+        sensor.AddObservation(rb.velocity);
+
+        for (int i = 0; i < 8; i++)
+        {
+            float rayDistance = 36f; 
+            float[] rayAngles = { 0f, 45f, 90f, 135f, 180f, 225f, 270f, 315f }; 
+            string detectableObjectsTag = "Droga";
+            float startVerticalOffset = 3.2f;
+            float endVerticalOffset = -2.1f;
+
+
+            foreach (float angle in rayAngles)
+            {
+                Vector3 rayDirection = Quaternion.Euler(0f, angle, 0f) * transform.forward;
+                RaycastHit hit;
+
+                if (Physics.Raycast(transform.position, rayDirection, out hit, rayDistance) && hit.collider.CompareTag(detectableObjectsTag))
+                {
+                    sensor.AddObservation(hit.distance / rayDistance);
+                }
+                else
+                {
+                    sensor.AddObservation(1f);
+                }
+            }
+        }
+    }
